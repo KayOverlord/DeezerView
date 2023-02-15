@@ -1,0 +1,14 @@
+{
+  "name": "deezerview_back-end",
+  "version": "1.0.0",
+  "description": "the back-end to the DeezerView app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KabeloLeboa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
