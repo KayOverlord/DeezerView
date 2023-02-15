@@ -9,3 +9,8 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+//https://api.deezer.com/search?q=eminem
+//https://api.deezer.com/search?q=artist:"aloe blacc"
+
+//https://api.deezer.com/artist/27/top
