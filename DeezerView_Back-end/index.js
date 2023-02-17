@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+const fetch = require("node-fetch");
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/Search", async (req, res) => {
+  const api_url = "https://api.deezer.com/search?q=artist:pushaT";
+  const apiResponse = await fetch(api_url);
+  const jsonResponse = await apiResponse.json();
+  res.json(jsonResponse);
 });
 
 app.listen(port, () => {
@@ -14,3 +18,4 @@ app.listen(port, () => {
 //https://api.deezer.com/search?q=artist:"aloe blacc"
 
 //https://api.deezer.com/artist/27/top
+//192.168.0.120
