@@ -1,6 +1,6 @@
 # DeezerView
 A React Native app that allows users to search artists on the Deezer platform 
-# React Native app with Express backend API
+# React Native app with Express.JS backend and Deezer API
 
 
 ## Back-end
