@@ -4,12 +4,15 @@
   "description": "the back-end to the DeezerView app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "supervisor index.js"
   },
   "author": "KabeloLeboa",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "node-fetch": "^2.6.9"
+    "node-fetch": "^2.6.9",
+    "supervisor": "^0.12.0"
   }
 }

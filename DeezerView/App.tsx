@@ -23,7 +23,7 @@ const App = () => {
         <Stack.Screen
           name="Artist"
           component={ArtistScreen}
-          options={{headerShown: false}}
+          options={{headerShown: true, title: 'Artist Details'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
