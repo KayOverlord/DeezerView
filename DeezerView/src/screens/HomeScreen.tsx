@@ -86,6 +86,7 @@ const HomeScreen = ({navigation}: any) => {
           }}>
           <StyleInput
             placeholder="Search that artist"
+            placeholderTextColor="#616161"
             onChangeText={v => setArtistName(v)}
             value={artistName}
             onSubmitEditing={getArtists}
