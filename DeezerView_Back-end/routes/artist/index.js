@@ -12,7 +12,7 @@ router.get("/:id", async (req, res) => {
 
 router.get("/:id/top", async (req, res) => {
   const id = req.params.id;
-  const api_url = `https://api.deezer.com/artist/${id}/top`;
+  const api_url = `https://api.deezer.com/artist/${id}/top?limit=5`;
   const apiResponse = await fetch(api_url);
   const jsonResponse = await apiResponse.json();
   res.json(jsonResponse);

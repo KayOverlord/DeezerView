@@ -6,7 +6,6 @@ const port = process.env.PORT || 8000;
 const searchRoute = require("./routes/search");
 const artistRoute = require("./routes/artist");
 
-app.use(express.json());
 app.use("/search", searchRoute);
 app.use("/artist", artistRoute);
 

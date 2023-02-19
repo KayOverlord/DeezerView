@@ -23,6 +23,7 @@ const HomeScreen = ({navigation}: any) => {
   const [artistName, setArtistName] = useState('');
   const [data, setData] = useState<any>([]);
   const [progress, setProgress] = useState(false);
+  const [message, setMessage] = useState("You haven't searched yet!");
 
   const getArtists = async () => {
     setProgress(true);
@@ -30,25 +31,37 @@ const HomeScreen = ({navigation}: any) => {
     if (artistName.trim().length > 0) {
       let newData: any[] = [];
       let size = 0;
-      get(search(artistName)).then(result => {
-        size = result.data.length;
-        result.data.forEach((item: {artist: {id: string}}) => {
-          get(artist(item.artist.id)).then(result => {
-            newData.push(result);
-            if (size === newData.length) {
-              const unique = [...new Map(newData.map(m => [m.id, m])).values()];
-              setData(unique);
-              setProgress(false);
-            }
+      get(search(artistName))
+        .then(result => {
+          size = result.data.length;
+          result.data.forEach((item: {artist: {id: string}}) => {
+            get(artist(item.artist.id))
+              .then(result => {
+                newData.push(result);
+                if (size === newData.length) {
+                  const unique = [
+                    ...new Map(newData.map(m => [m.id, m])).values(),
+                  ];
+                  setData(unique);
+                  setProgress(false);
+                }
+              })
+              .catch(error => {
+                setMessage('Something went wrong !');
+                setProgress(false);
+              });
           });
+        })
+        .catch(error => {
+          setMessage('Something went wrong !');
+          setProgress(false);
         });
-      });
     }
   };
 
   const renderItem = ({item}: any) => {
     return (
-      <Card onPress={() => navigation.navigate('Artist', {artist: item})}>
+      <Card onPress={() => navigation.navigate('Artist', {artist_info: item})}>
         <NormalText>{item.name}</NormalText>
         <Image
           style={{width: 320, height: 300}}
@@ -62,7 +75,7 @@ const HomeScreen = ({navigation}: any) => {
   return (
     <SafeAreaView>
       <Wrapper style={{justifyContent: 'flex-start'}}>
-        <Title style={{fontSize: 20}}>DeezerView</Title>
+        <Title style={{fontSize: 30}}>DeezerView</Title>
         <View
           style={{
             display: 'flex',
@@ -78,6 +91,7 @@ const HomeScreen = ({navigation}: any) => {
             onSubmitEditing={getArtists}
           />
           <Button
+            disabled={progress}
             style={{justifyContent: 'center', alignItems: 'center'}}
             onPress={getArtists}>
             <SVGImg width={25} height={25} />
@@ -92,7 +106,7 @@ const HomeScreen = ({navigation}: any) => {
                 keyExtractor={(item: any) => item.id}
               />
             ) : (
-              <ItalicText>You haven't searched yet!</ItalicText>
+              <ItalicText>{message}</ItalicText>
             )}
           </>
         ) : (
