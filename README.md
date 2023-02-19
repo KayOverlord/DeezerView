@@ -34,14 +34,19 @@ To setup your development environment you have to install the yarn dependencies.
 $ cd DeezerView
 $ yarn install
 ```
+2. Setup android emulator and localhost 
+   change the port of the ANDROID_EMULATOR_PATH in the .env file to the same Port number in the Back-end
+```
+ANDROID_EMULATOR_PATH=http://10.0.2.2:8000
+```
 
-2. run on android  emulator/device
+3. run on android  emulator/device
 
 ```
 $ yarn android
 ```
 
-3. run on ios  emulator/device
+4. run on ios  emulator/device
 
 ```
 $ yarn ios
