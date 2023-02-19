@@ -20,7 +20,7 @@ $ npm i
 $ npm run dev
 ```
 
-The API is exposed on http://localhost Port 8000 is default. if you want to change the Port, you can do so in the .env file 
+The API is exposed on http://localhost Port [8000] is default. if you want to change the Port, you can do so in the .env file 
 
 
 ## Front-end
