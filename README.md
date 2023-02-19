@@ -34,25 +34,25 @@ To setup your development environment you have to install the yarn dependencies.
 $ cd DeezerView
 $ yarn install
 ```
-2. Setup android emulator and localhost 
-   change the port of the ANDROID_EMULATOR_PATH in the .env file to the same Port number in the Back-end
+2. Setup the emulator with localhost 
+   change the port of the ANDROID_EMULATOR_PATH for android and IOS_EMULATOR_PATH for ios in the .env file to the same Port number in the Back-end.
+   The default paths are as follows:
 ```
 ANDROID_EMULATOR_PATH=http://10.0.2.2:8000
+IOS_EMULATOR_PATH=http://localhost:8000
 ```
 
-3. run on android  emulator/device
+3. To run on android  emulator/device
 
 ```
 $ yarn android
 ```
 
-4. run on ios  emulator/device
+4. To run on ios  emulator/device
 
 ```
 $ yarn ios
 ```
-
-### Development
 
 The app is dependent on the backend API, so you should make sure to start the backend API server first. 
 
